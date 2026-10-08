@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="school-logo.png">
+<title>TEAMCARE – student-made check-in space</title>
+<meta name="description" content="A student-made corner of the internet for checking in, venting, music and finding real support.">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#f7f4ee;color:#171717;
+  font-family:Arial,Helvetica,sans-serif;
+}
+::selection{background:#171717;color:#fff}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(920px,90%);margin:auto}
+nav{
+  position:sticky;top:0;z-index:10;background:#f7f4eecc;
+  backdrop-filter:blur(10px);border-bottom:2px solid #171717;
+}
+.nav{
+  min-height:64px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-weight:1000;font-size:1.25rem;letter-spacing:-1px;display:flex;align-items:center;gap:9px}
+.logo img{width:52px;height:52px;object-fit:contain;background:#fff}
+.logo span{font-size:.75rem;background:#c7ff4d;padding:4px 7px;border:2px solid #171717;border-radius:4px;margin-left:5px}
+.links{display:flex;gap:18px;font-weight:700;font-size:.85rem}
+.links a:hover{text-decoration:underline}
+.hero{padding:75px 0 55px;position:relative}
+.tape{
+  display:inline-block;background:#c7ff4d;border:2px solid #171717;
+  padding:5px 9px;transform:rotate(-2deg);font-weight:900;
+}
+h1{
+  font-size:clamp(4rem,12vw,8rem);line-height:.78;
+  letter-spacing:-8px;margin:25px 0 25px;
+  max-width:750px;
+}
+.hero p{font-size:1.12rem;max-width:610px;line-height:1.6}
+.hero .tiny{font-size:.78rem;font-weight:700;margin-top:20px}
+.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.btn{
+  display:inline-block;padding:12px 16px;background:#171717;color:#fff;
+  border:2px solid #171717;border-radius:6px;font-weight:900;cursor:pointer;
+  box-shadow:4px 4px 0 #c7ff4d;transition:.12s;
+}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #c7ff4d}
+.btn.alt{background:#fff;color:#171717;box-shadow:4px 4px 0 #ff7ab6}
+section{padding:45px 0}
+.section-title{
+  display:flex;align-items:baseline;gap:12px;margin-bottom:18px;
+}
+.section-title h2{font-size:2rem;margin:0;letter-spacing:-2px}
+.section-title span{font-size:.78rem;font-weight:900;color:#666}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{
+  border:2px solid #171717;background:#fff;padding:20px;min-height:170px;
+  box-shadow:5px 5px 0 #171717;border-radius:5px;
+}
+.card:nth-child(2){transform:rotate(1deg);background:#fff1f6}
+.card:nth-child(3){transform:rotate(-1deg);background:#f0ffd0}
+.card h3{margin:8px 0;font-size:1.15rem}
+.card p{color:#4d4d4d;font-size:.9rem;line-height:1.5}
+.emoji{font-size:1.8rem}
+.panel{
+  background:#fff;border:2px solid #171717;border-radius:5px;
+  padding:22px;box-shadow:5px 5px 0 #171717;
+}
+.moods{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.mood{
+  border:2px solid #171717;background:#f7f4ee;padding:11px 13px;
+  border-radius:5px;font-weight:900;cursor:pointer;
+}
+.mood:hover,.mood.selected{background:#c7ff4d}
+.output{display:none;margin-top:12px;padding:12px;border:2px dashed #171717;background:#f7f4ee;font-size:.9rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{font-weight:900;font-size:.9rem}
+textarea{
+  width:100%;min-height:130px;resize:vertical;margin-top:8px;
+  border:2px solid #171717;border-radius:4px;padding:12px;
+  background:#f7f4ee;font:inherit;outline:none;
+}
+textarea:focus{box-shadow:4px 4px 0 #ff7ab6}
+.small{font-size:.78rem;color:#666;line-height:1.5}
+.wall{
+  border:2px solid #171717;padding:25px;background:#fff1f6;
+  box-shadow:5px 5px 0 #ff7ab6;min-height:120px;
+  display:flex;align-items:center;font-size:1.35rem;font-weight:800;
+}
+.playlist{
+  display:flex;align-items:center;gap:15px;border:2px solid #171717;
+  padding:15px;background:#f0ffd0;
+}
+.cover{
+  width:58px;height:58px;background:#171717;color:#c7ff4d;
+  display:grid;place-items:center;font-weight:1000;font-size:1.1rem;
+}
+.resource{border-top:2px solid #171717;padding:15px 0;display:flex;justify-content:space-between;gap:20px}
+.resource:first-child{border-top:0}
+.songform{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;margin-top:16px;align-items:end}
+.songform label{display:block}
+.songform input,.songform select{
+  width:100%;margin-top:6px;border:2px solid #171717;border-radius:4px;padding:11px;
+  background:#f7f4ee;font:inherit;outline:none}
+.songform input:focus,.songform select:focus{box-shadow:4px 4px 0 #ff7ab6}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 10px}
+.chip{border:2px solid #171717;background:#f7f4ee;padding:7px 11px;border-radius:99px;font-weight:900;font-size:.8rem;cursor:pointer}
+.chip.selected,.chip:hover{background:#c7ff4d}
+.song{display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:2px solid #171717;padding:12px 0}
+.song:first-child{border-top:0}
+.song .lvl{font-size:.72rem;font-weight:900;background:#ff7ab6;border:2px solid #171717;border-radius:4px;padding:3px 7px;white-space:nowrap}
+@media(max-width:700px){.songform{grid-template-columns:1fr}}
+footer{border-top:2px solid #171717;margin-top:35px;padding:35px 0;font-size:.8rem}
+.footerline{display:flex;justify-content:space-between;gap:15px}
+@media(max-width:700px){
+  .links{display:none}.grid,.split{grid-template-columns:1fr}
+  h1{letter-spacing:-5px}.hero{padding-top:55px}
+}
+:root{--ink:#183b3d;--teal:#087f7d;--teal-deep:#075b5d;--sage:#e7f0e9;--paper:#f7f8f2;--gold:#e7bd58;--rose:#f6dfdd;--muted:#627578;--line:#b7ccc5}
+html{scroll-padding-top:90px}
+body{background:radial-gradient(circle at 88% 8%,#d5e9df 0,transparent 19rem),var(--paper);color:var(--ink);font-family:Inter,"Aptos",Arial,sans-serif;line-height:1.55}
+a{color:inherit}
+.wrap{width:min(1080px,90%)}
+nav{background:#f7f8f2eF;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:68px}
+.logo{gap:7px;font-size:1rem;letter-spacing:0}
+.logo img{background:#fff;object-fit:contain}
+.logo .school-mark{width:36px;height:36px;border-radius:50%;border:1px solid #e5d4cc}
+.logo .teamcare-mark{width:56px;height:56px;border-radius:12px}
+.logo span{background:#f6e4ad;border:1px solid #d6b54d;color:#544516;border-radius:999px;padding:4px 10px;font-size:.68rem;margin-left:3px}
+.links{gap:clamp(10px,2vw,25px);font-size:.8rem;color:var(--teal-deep)}
+.links a{padding:8px 0;transition:color .2s ease}
+.links a:hover{color:var(--teal);text-decoration:none}
+.hero{padding:78px 0 54px;min-height:390px;isolation:isolate}
+.hero h1{color:var(--teal-deep);font-size:clamp(4rem,10vw,7.4rem);letter-spacing:-.085em;line-height:.79;margin:24px 0 22px;max-width:620px}
+.tape{background:#f1d982;border:1px solid #d1ae4e;color:#544516;border-radius:6px;padding:6px 11px;font-size:.8rem;transform:rotate(-1.5deg)}
+.hero p{color:#53696a;font-size:1rem;max-width:510px;line-height:1.75}
+.hero .tiny{font-size:.75rem;color:var(--muted);margin-top:16px}
+.buttons{gap:13px;margin-top:23px}
+.btn{background:var(--teal);border:1px solid var(--teal);color:#fff;border-radius:8px;box-shadow:3px 3px 0 var(--gold);padding:11px 15px;font-size:.82rem;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.btn:hover{background:var(--teal-deep);transform:translate(1px,1px);box-shadow:2px 2px 0 var(--gold)}
+.btn.alt{background:#fff;color:var(--teal-deep);border-color:#91bbb3;box-shadow:3px 3px 0 #d8e8df}
+section{padding:36px 0 42px}
+.section-title{gap:10px;margin-bottom:17px}
+.section-title h2{font-size:clamp(1.45rem,3vw,1.9rem);letter-spacing:-.055em;color:var(--teal-deep)}
+.section-title span{color:#728786;font-size:.7rem;letter-spacing:.04em}
+.grid{gap:16px}
+.card{border:1px solid #b8ccc4;background:#fff;padding:21px;min-height:155px;box-shadow:0 8px 20px #143b3d0c;border-radius:12px;transition:transform .2s ease,box-shadow .2s ease}
+.card:nth-child(2),.card:nth-child(3){transform:none;background:#fff}
+.card:nth-child(2){border-top:4px solid #dba6a5}
+.card:nth-child(3){border-top:4px solid #d8bb64}
+.card:first-child{border-top:4px solid var(--teal)}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 24px #143b3d14}
+.card h3{color:var(--teal-deep);font-size:1.05rem}
+.card p,.small{color:var(--muted);line-height:1.65}
+.emoji{font-size:1.55rem}
+.panel{background:#fff;border:1px solid #b8ccc4;border-radius:12px;padding:clamp(18px,3vw,26px);box-shadow:0 9px 24px #143b3d0c}
+.moods{gap:9px;margin:15px 0}
+.mood,.chip{border:1px solid #a9c4bc;background:#f4f8f4;color:var(--teal-deep);border-radius:999px;padding:9px 13px;font-size:.82rem;transition:background .18s,border-color .18s,transform .18s}
+.mood:hover,.mood.selected,.chip.selected,.chip:hover{background:#dceee5;border-color:var(--teal);transform:translateY(-1px)}
+.output{border:1px solid #a6c7bb;border-radius:9px;background:#f1f7f1;color:var(--teal-deep);padding:12px}
+.split{gap:16px}
+textarea,.songform input,.songform select{border:1px solid #b8ccc4;border-radius:8px;background:#f8faf6;color:var(--ink);padding:12px;transition:border-color .15s,box-shadow .15s}
+textarea:focus,.songform input:focus,.songform select:focus{border-color:var(--teal);box-shadow:0 0 0 3px #07807d1a;outline:none}
+.wall{border:1px solid #d7a7a4;padding:24px;background:#fff4f1;box-shadow:0 8px 20px #143b3d0a;min-height:115px;border-radius:11px;color:var(--teal-deep);font-size:clamp(1.05rem,2.4vw,1.35rem);line-height:1.5}
+.playlist{border:1px solid #b8ccc4;border-radius:10px;padding:14px;background:#edf5ed}
+.cover{border-radius:8px;background:var(--teal-deep);color:#f6dc8d}
+.resource{border-top:1px solid #e0e9e3;padding:16px 0}
+.resource:first-of-type{margin-top:10px}
+.songform{gap:10px}
+.songform input,.songform select{margin-top:7px}
+.chip{font-size:.75rem}
+.song{border-color:#e0e9e3}
+.song .lvl{background:#f6e4ad;border:1px solid #d6b54d;color:#544516;border-radius:999px;padding:4px 9px}
+footer{background:var(--teal-deep);color:#f5f7ef;border:0;margin-top:28px;padding:28px 0}
+.footerline{align-items:center}
+:focus-visible{outline:3px solid #d3ac45;outline-offset:3px}
+.hero-art{position:absolute;z-index:-1;right:2%;top:68px;width:min(39%,390px);height:280px;display:grid;place-items:center}
+.art-orbit{position:absolute;inset:7% 8%;border-radius:50%;background:radial-gradient(circle at 48% 45%,#d6eae0 0,#e4f0e7 48%,#e4f0e700 72%)}
+.art-card{position:absolute;border:1px solid #abc8bd;border-radius:16px;background:#ffffffed;box-shadow:0 16px 35px #123d3c18}
+.art-card-main{width:225px;height:178px;display:flex;flex-direction:column;justify-content:center;padding:23px;transform:rotate(3deg)}
+.art-card-main b{font-size:1.55rem;line-height:1.18;color:var(--teal-deep);letter-spacing:-.04em}
+.art-card-main small{font-size:.67rem;color:var(--muted);margin-top:14px}
+.art-spark{color:#c79c32;font-size:1.4rem;margin-bottom:6px}
+.art-card-note{right:0;bottom:3px;background:#f8e9e3;padding:14px 17px;color:#684f4d;font-size:.77rem;font-weight:700;transform:rotate(-4deg)}
+.art-dot{position:absolute;color:#c49a35}
+.art-dot-one{top:4%;right:17%;font-size:1.3rem}
+.art-dot-two{bottom:17%;left:7%;font-size:1rem;color:var(--teal)}
+@media(max-width:700px){
+ .nav{min-height:60px;gap:12px}.logo .teamcare-mark{width:46px;height:46px}.logo .school-mark{width:30px;height:30px}.logo span{font-size:.58rem;padding:3px 7px}
+ .links{display:flex;gap:12px;overflow-x:auto;white-space:nowrap;font-size:.72rem;scrollbar-width:none}.links::-webkit-scrollbar{display:none}
+ .hero{padding:54px 0 36px;min-height:0}.hero h1{letter-spacing:-.07em}.hero-art{display:none}
+ .grid,.split{grid-template-columns:1fr}.card{min-height:0}.songform{grid-template-columns:1fr}.footerline{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.form-panel{padding:14px;overflow:hidden}
+.form-panel>p{padding:4px 8px 0}
+.submission-frame{display:block;width:100%;height:1320px;border:0;border-radius:9px;background:#fff}
+@media(max-width:700px){.submission-frame{height:1480px}}
+.send-panel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:18px;padding:clamp(21px,4vw,34px);background:linear-gradient(135deg,#fff 0%,#f1f7f1 100%)}
+.send-panel h3{margin:8px 0;color:var(--teal-deep);font-size:clamp(1.35rem,3vw,2rem);letter-spacing:-.04em}
+.send-kicker{color:#9a7a2b;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.send-footnote{grid-column:1/-1;margin:0;padding-top:13px;border-top:1px solid #dfe9e2}
+.submission-dialog{width:min(760px,calc(100% - 24px));max-height:92dvh;padding:clamp(16px,3vw,24px);border:1px solid #b8ccc4;border-radius:18px;background:var(--paper);color:var(--ink);box-shadow:0 25px 80px #102d2d40}
+.submission-dialog::backdrop{background:#102d2dcc;backdrop-filter:blur(4px)}
+.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.dialog-head h2{margin:5px 0 0;color:var(--teal-deep);font-size:1.8rem}
+.dialog-close{width:40px;height:40px;border:1px solid #b8ccc4;border-radius:50%;background:#fff;color:var(--teal-deep);font-size:1.55rem;cursor:pointer}
+.dialog-note{margin:10px 0 14px}
+.submission-frame{display:block;width:100%;height:min(68dvh,760px);min-height:500px;border:1px solid #d9e4dc;border-radius:12px;background:#fff}
+@media(max-width:700px){.send-panel{grid-template-columns:1fr}.send-footnote{grid-column:1}.submission-dialog{max-height:94dvh;padding:15px;border-radius:14px}.submission-frame{height:70dvh;min-height:430px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav">
+    <a class="logo" href="#"><img class="school-mark" src="school-logo.png" alt="School logo"><img class="teamcare-mark" src="teamcare-logo.png" alt="TEAMCARE"><span>student-made</span></a>
+    <div class="links">
+      <a href="#check">check in</a>
+      <a href="#say">say something</a>
+      <a href="#submission-form">send a response</a>
+      <a href="#wall">wall</a>
+      <a href="#help">help</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <span class="tape">ok but hear us out</span>
+  <h1>TEAM<br>CARE.</h1>
+  <p>
+    School can be a lot. This is basically a corner of the internet for
+    checking in, dumping your thoughts, finding music and remembering that
+    literally everyone is figuring stuff out.
+  </p>
+  <div class="buttons">
+    <a class="btn" href="#check">how am i doing? →</a>
+    <a class="btn alt" href="#say">i need to yap →</a>
+  </div>
+  <div class="tiny">no motivational speeches. promise.</div>
+  <div class="hero-art" aria-hidden="true"><div class="art-orbit"></div><div class="art-card art-card-main"><span class="art-spark">✳</span><b>a little space<br>to breathe.</b><small>check in · connect · reset</small></div><div class="art-card art-card-note">you don't have to<br>figure it all out today.</div><div class="art-dot art-dot-one">✦</div><div class="art-dot art-dot-two">✳</div></div>
+</header>
+
+<section class="wrap">
+  <div class="section-title"><h2>what is this?</h2><span>01</span></div>
+  <div class="grid">
+    <div class="card">
+      <div class="emoji">🫠</div>
+      <h3>school is school</h3>
+      <p>Sometimes you just need somewhere to say “bro I cannot do this today” without making it a whole thing.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🗣️</div>
+      <h3>actually talk</h3>
+      <p>Share a check-in, note or question. The form does not collect email addresses; leave names and identifying details out.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🎧</div>
+      <h3>good vibes only*</h3>
+      <p>Playlists, tiny distractions and things that make the school week approximately 4% less painful.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="check">
+  <div class="section-title"><h2>be honest.</h2><span>02 · anonymous</span></div>
+  <div class="panel">
+    <b>how are you actually doing rn?</b>
+    <div class="moods">
+      <button class="mood" data-msg="yeah... rough. go easy on yourself today.">💀 rough</button>
+      <button class="mood" data-msg="valid. surviving counts.">😵‍💫 surviving</button>
+      <button class="mood" data-msg="we're just here tbh.">🧍 existing</button>
+      <button class="mood" data-msg="okayyy we see you.">🙂 pretty good</button>
+      <button class="mood" data-msg="W week. don't jinx it.">🔥 weirdly thriving</button>
+    </div>
+    <div class="output" id="moodOutput"></div>
+    <p class="small">This button gives a local check-in only. To send your mood, choose “Mood check-in” in the form and pick your mood there too.</p>
+  </div>
+</section>
+
+<section class="wrap" id="say">
+  <div class="section-title"><h2>say it.</h2><span>03 · no names</span></div>
+  <div class="split">
+    <div class="panel">
+      <label>the digital wall of “i just need to say this”</label>
+      <p class="small">Vent, rant, complain about homework. Whatever. Keep names/private details out.</p>
+      <a class="btn" href="#submission-form">open the form →</a>
+    </div>
+    <div class="panel">
+      <label>send someone a little kindness</label>
+      <p class="small">No cheesy paragraphs required. One sentence is enough.</p>
+      <a class="btn alt" href="#submission-form">send a kind note →</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="submission-form">
+  <div class="section-title"><h2>your space.</h2><span>responses stay private</span></div>
+  <div class="panel send-panel"><div><span class="send-kicker">vent · check in · kindness · music</span><h3>say what you need to say.</h3><p class="small">Share a check-in, leave a kind note or suggest a song. Common swear words are blocked in typed answers, and every response is reviewed by the form owner before any possible use.</p></div><a class="btn" href="#submission-form" data-open-form>open the response form →</a><p class="small send-footnote">Your response will not appear on this website. Please leave out names and private details.</p></div>
+</section>
+
+<dialog class="submission-dialog" id="submissionDialog" aria-labelledby="submissionTitle">
+  <div class="dialog-head"><div><span class="send-kicker">TEAMCARE · student check-in</span><h2 id="submissionTitle">send it in.</h2></div><button class="dialog-close" type="button" aria-label="Close form" data-close-form>×</button></div>
+  <p class="small dialog-note">Responses go privately to the form owner for review. Common swear words are filtered, but please keep it kind and school-appropriate.</p>
+  <iframe class="submission-frame" title="TEAMCARE student submissions" data-src="https://docs.google.com/forms/d/e/1FAIpQLSdjfhGoxMrQgRakm63BSbdOgVvJvn2pIghZDxEDro7yrHGpxg/viewform?embedded=true" loading="lazy">Loading the form…</iframe>
+</dialog>
+
+<section class="wrap" id="wall">
+  <div class="section-title"><h2>things we probably needed to hear</h2><span>04</span></div>
+  <div class="wall" id="wallText">“You don't have to have your entire life figured out while you're trying to survive third period.”</div>
+  <div style="margin-top:15px"><button class="btn alt" onclick="nextQuote()">another one →</button></div>
+</section>
+
+<section class="wrap">
+  <div class="section-title"><h2>the playlist</h2><span>05 · extremely important</span></div>
+  <div class="panel">
+    <div class="playlist">
+      <div class="cover">TC<br>FM</div>
+      <div style="flex:1">
+        <b>TEAMCARE: academic victim era</b>
+        <div class="small">songs submitted by students because apparently music is therapy now</div>
+      </div>
+      <a class="btn" id="playBtn" href="#" target="_blank" rel="noopener">play ↗</a>
+    </div>
+    <div style="margin-top:22px"><b>suggest a song for the school list</b>
+      <p class="small">School-appropriate songs only (no explicit lyrics). Title, artist and your level, no names needed. The team checks suggestions before they go on the list.</p>
+      <a class="btn" href="#submission-form">suggest a song →</a>
+    </div>
+    <div style="margin-top:26px"><b>the school-wide list</b>
+      <div class="chips" id="songChips"></div>
+      <div id="songList"></div>
+    </div>
+    <p class="small">Other playlist ideas: “2AM thoughts” · “walking home main character moment” · “exam week” · “songs that make me stop hating everyone”</p>
+  </div>
+</section>
+
+<section class="wrap" id="help">
+  <div class="section-title"><h2>okay, real talk.</h2><span>06 · important</span></div>
+  <div class="panel">
+    <p>If something is genuinely getting too much, you don't have to deal with it through a website. Talk to someone you trust.</p>
+    <div class="resource">
+      <div><b>Connexion department</b><div class="small">Visit the Connexion department</div></div><b>→</b>
+    </div>
+    <div class="resource">
+      <div><b>someone you trust</b><div class="small">teacher · parent · guardian · friend · another trusted adult</div></div><b>→</b>
+    </div>
+    <div class="resource">
+      <div><b>if someone is in immediate danger</b><div class="small">Contact a trusted adult or local emergency services immediately.</div></div><b>→</b>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footerline">
+    <div><b>TEAMCARE</b><br>made by students, hopefully not during a free period.</div>
+    <div>© 2026 · school project</div>
+  </div>
+</footer>
+
+<script>
+const quotes=[
+'“You don’t have to have your entire life figured out while you’re trying to survive third period.”',
+'“One bad grade is not a character development arc.”',
+'“It is okay to outgrow people. It is also okay to miss them.”',
+'“You are allowed to rest before you completely crash.”',
+'“Nobody actually knows what they’re doing. Some people just type faster.”',
+'“You can care about your future without ruining your present.”'
+];
+let qi=0;
+document.querySelectorAll('.mood').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.mood').forEach(x=>x.classList.remove('selected'));
+ b.classList.add('selected');
+ const o=document.getElementById('moodOutput');o.textContent=b.dataset.msg;o.style.display='block';
+});
+function nextQuote(){qi=(qi+1)%quotes.length;document.getElementById('wallText').textContent=quotes[qi]}const submissionDialog=document.getElementById('submissionDialog');
+document.querySelectorAll('a[href="#submission-form"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const frame=submissionDialog.querySelector('iframe');if(!frame.hasAttribute('src'))frame.src=frame.dataset.src;submissionDialog.showModal()}));
+submissionDialog.querySelector('[data-close-form]').addEventListener('click',()=>submissionDialog.close());
+submissionDialog.addEventListener('click',e=>{if(e.target===submissionDialog)submissionDialog.close()});
+// PASTE YOUR SCHOOL-APPROVED SPOTIFY PLAYLIST LINK HERE
+const PLAYLIST_URL='';
+// Approved songs go here. Add one line per song after you review suggestions, e.g.
+// {title:'Golden Hour',artist:'JVKE',level:'Grades 9–10'},
+const SONGS=[
+];
+const LEVELS=['All','Grades 1–5','Grades 6–8','Grades 9–10','Grades 11–12'];
+let songFilter='All';
+(function(){
+ const pb=document.getElementById('playBtn');
+ if(PLAYLIST_URL){pb.href=PLAYLIST_URL}else{pb.onclick=e=>{e.preventDefault();alert('Playlist link coming soon!')}}
+})();
+function renderSongs(){
+ const chips=document.getElementById('songChips');chips.textContent='';
+ LEVELS.forEach(l=>{
+  const c=document.createElement('button');c.className='chip'+(l===songFilter?' selected':'');c.textContent=l;
+  c.onclick=()=>{songFilter=l;renderSongs()};chips.appendChild(c);
+ });
+ const list=document.getElementById('songList');list.textContent='';
+ const shown=SONGS.filter(x=>songFilter==='All'||x.level===songFilter);
+ if(!shown.length){
+  const p=document.createElement('p');p.className='small';
+  p.textContent=SONGS.length?'no songs for this level yet.':'no songs yet. be the first to suggest one!';
+  list.appendChild(p);return;
+ }
+ shown.forEach(x=>{
+  const r=document.createElement('div');r.className='song';
+  const a=document.createElement('div');
+  const b=document.createElement('b');b.textContent=x.title;
+  const d=document.createElement('div');d.className='small';d.textContent=x.artist;
+  a.appendChild(b);a.appendChild(d);
+  const t=document.createElement('span');t.className='lvl';t.textContent=x.level;
+  r.appendChild(a);r.appendChild(t);list.appendChild(r);
+ });
+}
+renderSongs();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

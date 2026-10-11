@@ -408,6 +408,26 @@ section{padding:42px 0 48px}
 .btn{transition:transform .2s ease,background .2s ease,color .2s ease}
 @media(max-width:700px){.hero-cinema{height:clamp(480px,72svh,620px);padding:0 24px 53px}.hero-cinema h1{font-size:clamp(2.9rem,10.4vw,4.4rem);line-height:.98}.hero-cinema:after{background-position:53% center}.brand-intro{padding:50px 0 44px}.motion-ribbon{padding:11px 0}#what-we-do{padding-top:34px;padding-bottom:34px}.moments{padding-top:38px;padding-bottom:34px}}
 @media(prefers-reduced-motion:reduce){.hero-cinema:after,.motion-ribbon-track{animation:none}.hero-cinema .hero-overline,.hero-cinema h1,.hero-discover{animation:none}.reveal{opacity:1;transform:none;transition:none}.moment-card img{transition:none}}
+/* a living backdrop that drifts behind the reading experience */
+body{background:transparent!important;isolation:isolate;position:relative}
+body:before{content:"";position:fixed;z-index:-1;inset:-9vh -3vw;pointer-events:none;background:linear-gradient(180deg,#173b3a30,#edf3e9aa 48%,#f7f6f1e8),url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2200&q=85") center/cover no-repeat;transform:translate3d(0,var(--page-drift,0px),0) scale(1.08);will-change:transform}
+body:after{content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(ellipse at 12% 35%,#f4e5bf42,transparent 34%),radial-gradient(ellipse at 90% 76%,#c4e0d233,transparent 36%)}
+nav{background:#f8f8f2d9!important;backdrop-filter:blur(18px)}
+.brand-intro{position:relative}
+.brand-intro:before{content:"";position:absolute;z-index:-1;inset:8% -9vw;border-radius:4px;background:#f8f8f1d9;backdrop-filter:blur(13px);box-shadow:0 25px 80px #163b4010}
+#what-we-do .grid{background:#fafaf4dc;backdrop-filter:blur(12px);box-shadow:0 20px 60px #173b3a12}
+.moment-card img{box-shadow:0 20px 50px #163b4030}
+.moment-note{box-shadow:0 20px 50px #163b4016;animation:noteFloat 7s ease-in-out infinite alternate}
+@keyframes noteFloat{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(-9px) rotate(1deg)}}
+.panel{background:#fafaf3df!important;backdrop-filter:blur(14px)}
+.send-panel{background:#f1f2e8e8!important}
+.wall{background:#faf3e7e8!important;backdrop-filter:blur(12px)}
+footer{box-shadow:0 -12px 40px #163c3e15}
+.reveal{transform:translate3d(0,34px,0) scale(.985);transition:opacity .9s ease,transform .9s cubic-bezier(.18,.72,.25,1);transition-delay:var(--reveal-delay,0ms)}
+.reveal.is-visible{transform:translate3d(0,0,0) scale(1)}
+.card.reveal,.moment-card.reveal{will-change:transform,opacity}
+@media(max-width:700px){body:before{inset:-5vh -25vw;background-position:55% center}.brand-intro:before{inset:3% -5vw}.panel{backdrop-filter:blur(10px)}}
+@media(prefers-reduced-motion:reduce){body:before{transform:none!important}.moment-note{animation:none}.reveal{transform:none;opacity:1}}
 </style>
 </head>
 <body>
@@ -570,7 +590,7 @@ section{padding:42px 0 48px}
 <script>
 // Motion system: cinematic hero, scroll reveals, and a quiet reading-progress line.
 const progressBar=document.getElementById('scrollProgress');
-function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progressBar.style.transform=`scaleX(${max>0?scrollY/max:0})`}
+function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progressBar.style.transform=`scaleX(${max>0?scrollY/max:0})`;document.body.style.setProperty("--page-drift",`${Math.min(scrollY*.11,180)}px`)}
 window.addEventListener('scroll',updateProgress,{passive:true});window.addEventListener('resize',updateProgress);updateProgress();
 const revealItems=document.querySelectorAll('.brand-intro,.section-title,.card,.moment-card,#check .panel,#say .panel,#submission-form .send-panel,#wall .wall,#help .panel');
 revealItems.forEach((el,i)=>{el.classList.add('reveal');if(el.classList.contains('card')||el.classList.contains('moment-card'))el.style.setProperty('--reveal-delay',`${(i%3)*90}ms`)});

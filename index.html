@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="school-logo.png">
 <title>TEAMCARE – student-made check-in space</title>
-<meta name="description" content="A student-made corner of the internet for checking in, venting, music and finding real support.">
+<meta name="description" content="A student-led wellbeing space for checking in, venting, music and finding real support.">
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -211,6 +211,32 @@ footer{background:var(--teal-deep);color:#f5f7ef;border:0;margin-top:28px;paddin
 .dialog-note{margin:10px 0 14px}
 .submission-frame{display:block;width:100%;height:min(68dvh,760px);min-height:500px;border:1px solid #d9e4dc;border-radius:12px;background:#fff}
 @media(max-width:700px){.send-panel{grid-template-columns:1fr}.send-footnote{grid-column:1}.submission-dialog{max-height:94dvh;padding:15px;border-radius:14px}.submission-frame{height:70dvh;min-height:430px}}
+
+/* Final polish: confident, calm and student-friendly. */
+:root{--ink:#173b3c;--teal:#167c78;--teal-deep:#104f50;--paper:#f8faf7;--muted:#5f7372;--line:#d6e2dc}
+body{background:var(--paper);line-height:1.65}
+.wrap{width:min(1120px,90%)}
+nav{box-shadow:0 2px 12px #173b3c08}
+.logo .school-mark{width:32px;height:32px}.logo .teamcare-mark{width:48px;height:48px}
+.logo span{background:#edf4ef;border-color:#cfddd5;color:var(--teal-deep);font-weight:700}
+.hero{padding:88px 0 62px;min-height:410px}
+.hero h1{font-size:clamp(4rem,9.5vw,7rem);line-height:.88;letter-spacing:-.075em}
+.tape{transform:none;border-radius:999px;background:#e8f1eb;border-color:#cbdcd2;color:#315d59;font-weight:700}
+.hero p{font-size:1.08rem;max-width:540px}
+.btn{box-shadow:none;border-radius:7px;font-weight:700}
+.btn:hover{box-shadow:0 5px 14px #104f5025;transform:translateY(-1px)}
+.btn.alt{box-shadow:none}
+section{padding:43px 0}
+.section-title{margin-bottom:22px}
+.section-title h2{font-weight:650}
+.card{padding:24px;min-height:168px;box-shadow:0 5px 18px #173b3c0a}
+.card:first-child,.card:nth-child(2),.card:nth-child(3){border-top:1px solid #b8ccc4}
+.emoji{display:none}
+.card h3{font-weight:650}
+.panel{box-shadow:0 5px 18px #173b3c0a}
+.wall{font-weight:650}
+footer{background:#104f50}
+@media(max-width:700px){.hero{padding-top:60px}.hero h1{letter-spacing:-.065em}.logo .school-mark{width:27px;height:27px}.logo .teamcare-mark{width:42px;height:42px}}
 </style>
 </head>
 <body>
@@ -229,18 +255,16 @@ footer{background:var(--teal-deep);color:#f5f7ef;border:0;margin-top:28px;paddin
 </nav>
 
 <header class="hero wrap">
-  <span class="tape">ok but hear us out</span>
+  <span class="tape">A student-led wellbeing space</span>
   <h1>TEAM<br>CARE.</h1>
   <p>
-    School can be a lot. This is basically a corner of the internet for
-    checking in, dumping your thoughts, finding music and remembering that
-    literally everyone is figuring stuff out.
+    School can bring pressure, change and uncertainty. TEAMCARE offers students a welcoming space to check in, share encouragement, discover music and find support when they need it.
   </p>
   <div class="buttons">
-    <a class="btn" href="#check">how am i doing? →</a>
-    <a class="btn alt" href="#say">i need to yap →</a>
+    <a class="btn" href="#check">Check in →</a>
+    <a class="btn alt" href="#say">Share a thought →</a>
   </div>
-  <div class="tiny">no motivational speeches. promise.</div>
+  <div class="tiny">A calm space to pause, reflect and connect.</div>
   <div class="hero-art" aria-hidden="true"><div class="art-orbit"></div><div class="art-card art-card-main"><span class="art-spark">✳</span><b>a little space<br>to breathe.</b><small>check in · connect · reset</small></div><div class="art-card art-card-note">you don't have to<br>figure it all out today.</div><div class="art-dot art-dot-one">✦</div><div class="art-dot art-dot-two">✳</div></div>
 </header>
 
@@ -248,84 +272,84 @@ footer{background:var(--teal-deep);color:#f5f7ef;border:0;margin-top:28px;paddin
   <div class="section-title"><h2>what is this?</h2><span>01</span></div>
   <div class="grid">
     <div class="card">
-      <div class="emoji">🫠</div>
-      <h3>school is school</h3>
-      <p>Sometimes you just need somewhere to say “bro I cannot do this today” without making it a whole thing.</p>
+      <div class="emoji">01</div>
+      <h3>A place to be heard</h3>
+      <p>Some days are difficult. Share what is on your mind without pressure or judgment.</p>
     </div>
     <div class="card">
-      <div class="emoji">🗣️</div>
-      <h3>actually talk</h3>
-      <p>Share a check-in, note or question. The form does not collect email addresses; leave names and identifying details out.</p>
+      <div class="emoji">02</div>
+      <h3>Share with care</h3>
+      <p>Share a check-in, question or note. The form does not collect email addresses. Please leave out names and identifying details.</p>
     </div>
     <div class="card">
-      <div class="emoji">🎧</div>
-      <h3>good vibes only*</h3>
-      <p>Playlists, tiny distractions and things that make the school week approximately 4% less painful.</p>
+      <div class="emoji">03</div>
+      <h3>Small things that help</h3>
+      <p>Find music, moments of calm and simple reminders that can make a busy week feel more manageable.</p>
     </div>
   </div>
 </section>
 
 <section class="wrap" id="check">
-  <div class="section-title"><h2>be honest.</h2><span>02 · anonymous</span></div>
+  <div class="section-title"><h2>Check in with yourself</h2><span>02 · anonymous</span></div>
   <div class="panel">
-    <b>how are you actually doing rn?</b>
+    <b>How are you feeling today?</b>
     <div class="moods">
-      <button class="mood" data-msg="yeah... rough. go easy on yourself today.">💀 rough</button>
-      <button class="mood" data-msg="valid. surviving counts.">😵‍💫 surviving</button>
-      <button class="mood" data-msg="we're just here tbh.">🧍 existing</button>
-      <button class="mood" data-msg="okayyy we see you.">🙂 pretty good</button>
-      <button class="mood" data-msg="W week. don't jinx it.">🔥 weirdly thriving</button>
+      <button class="mood" data-msg="It sounds like today is difficult. Be gentle with yourself.">Having a tough day</button>
+      <button class="mood" data-msg="Getting through the day is enough.">Getting through</button>
+      <button class="mood" data-msg="Take a moment. You do not need to have everything figured out.">Taking it one step at a time</button>
+      <button class="mood" data-msg="It is good to hear you are doing okay.">Doing okay</button>
+      <button class="mood" data-msg="Enjoy the good moments.">Feeling good</button>
     </div>
     <div class="output" id="moodOutput"></div>
-    <p class="small">This button gives a local check-in only. To send your mood, choose “Mood check-in” in the form and pick your mood there too.</p>
+    <p class="small">Your selection stays on this device. To share your mood with the team, choose “Mood check-in” in the response form.</p>
   </div>
 </section>
 
 <section class="wrap" id="say">
-  <div class="section-title"><h2>say it.</h2><span>03 · no names</span></div>
+  <div class="section-title"><h2>Share a thought</h2><span>03 · no names</span></div>
   <div class="split">
     <div class="panel">
-      <label>the digital wall of “i just need to say this”</label>
-      <p class="small">Vent, rant, complain about homework. Whatever. Keep names/private details out.</p>
+      <label>A place to put things into words</label>
+      <p class="small">Share what is on your mind, or leave a note of encouragement. Please do not include names or private details.</p>
       <a class="btn" href="#submission-form">open the form →</a>
     </div>
     <div class="panel">
-      <label>send someone a little kindness</label>
-      <p class="small">No cheesy paragraphs required. One sentence is enough.</p>
+      <label>Offer encouragement</label>
+      <p class="small">A thoughtful sentence can make a difference.</p>
       <a class="btn alt" href="#submission-form">send a kind note →</a>
     </div>
   </div>
 </section>
 
 <section class="wrap" id="submission-form">
-  <div class="section-title"><h2>your space.</h2><span>responses stay private</span></div>
-  <div class="panel send-panel"><div><span class="send-kicker">vent · check in · kindness · music</span><h3>say what you need to say.</h3><p class="small">Share a check-in, leave a kind note or suggest a song. Common swear words are blocked in typed answers, and every response is reviewed by the form owner before any possible use.</p></div><a class="btn" href="#submission-form" data-open-form>open the response form →</a><p class="small send-footnote">Your response will not appear on this website. Please leave out names and private details.</p></div>
+  <div class="section-title"><h2>Send a response</h2><span>responses stay private</span></div>
+  <div class="panel send-panel"><div><span class="send-kicker">Check-in · encouragement · music</span><h3>What would you like to share?</h3><p class="small">Share a check-in, offer encouragement or suggest a song. Responses are reviewed by the form owner before any use.</p></div><a class="btn" href="#submission-form" data-open-form>open the response form →</a><p class="small send-footnote">Responses are private and will not appear on this website. Please leave out names and personal details.</p></div>
 </section>
 
 <dialog class="submission-dialog" id="submissionDialog" aria-labelledby="submissionTitle">
-  <div class="dialog-head"><div><span class="send-kicker">TEAMCARE · student check-in</span><h2 id="submissionTitle">send it in.</h2></div><button class="dialog-close" type="button" aria-label="Close form" data-close-form>×</button></div>
-  <p class="small dialog-note">Responses go privately to the form owner for review. Common swear words are filtered, but please keep it kind and school-appropriate.</p>
+  <div class="dialog-head"><div><span class="send-kicker">TEAMCARE · student wellbeing</span><h2 id="submissionTitle">Share with TEAMCARE</h2></div><button class="dialog-close" type="button" aria-label="Close form" data-close-form>×</button></div>
+  <p class="small dialog-note">Responses go privately to the form owner for review. Please keep messages respectful and leave out identifying details.</p>
   <iframe class="submission-frame" title="TEAMCARE student submissions" data-src="https://docs.google.com/forms/d/e/1FAIpQLSdjfhGoxMrQgRakm63BSbdOgVvJvn2pIghZDxEDro7yrHGpxg/viewform?embedded=true" loading="lazy">Loading the form…</iframe>
 </dialog>
 
 <section class="wrap" id="wall">
-  <div class="section-title"><h2>things we probably needed to hear</h2><span>04</span></div>
-  <div class="wall" id="wallText">“You don't have to have your entire life figured out while you're trying to survive third period.”</div>
-  <div style="margin-top:15px"><button class="btn alt" onclick="nextQuote()">another one →</button></div>
+  <div class="section-title"><h2>A few reminders</h2><span>04</span></div>
+  <div class="wall" id="wallText">“You don't have to have your entire life figured out while you're trying to get through the school day.”</div>
+  <div style="margin-top:15px"><button class="btn alt" onclick="nextQuote()">Show another →</button></div>
 </section>
 
 <section class="wrap">
-  <div class="section-title"><h2>the playlist</h2><span>05 · extremely important</span></div>
+  <div class="section-title"><h2>Music for the week</h2><span>05 · student selections</span></div>
   <div class="panel">
     <div class="playlist">
       <div class="cover">TC<br>FM</div>
       <div style="flex:1">
-        <b>TEAMCARE: academic victim era</b>
-        <div class="small">songs submitted by students because apparently music is therapy now</div>
+        <b>TEAMCARE · student playlist</b>
+        <div class="small">Student-selected music for the school community</div>
       </div>
       <a class="btn" id="playBtn" href="#" target="_blank" rel="noopener">play ↗</a>
     </div>
-    <div style="margin-top:22px"><b>suggest a song for the school list</b>
+    <div style="margin-top:22px"><b>Suggest a song</b>
       <p class="small">School-appropriate songs only (no explicit lyrics). Title, artist and your level, no names needed. The team checks suggestions before they go on the list.</p>
       <a class="btn" href="#submission-form">suggest a song →</a>
     </div>
@@ -333,40 +357,40 @@ footer{background:var(--teal-deep);color:#f5f7ef;border:0;margin-top:28px;paddin
       <div class="chips" id="songChips"></div>
       <div id="songList"></div>
     </div>
-    <p class="small">Other playlist ideas: “2AM thoughts” · “walking home main character moment” · “exam week” · “songs that make me stop hating everyone”</p>
+    <p class="small">Playlist themes: quiet moments · the walk home · exam week · songs that lift your mood</p>
   </div>
 </section>
 
 <section class="wrap" id="help">
-  <div class="section-title"><h2>okay, real talk.</h2><span>06 · important</span></div>
+  <div class="section-title"><h2>Finding support</h2><span>06 · important</span></div>
   <div class="panel">
-    <p>If something is genuinely getting too much, you don't have to deal with it through a website. Talk to someone you trust.</p>
+    <p>If something is genuinely getting too much, you don't have to deal with it through a website. Talk to A trusted person.</p>
     <div class="resource">
-      <div><b>Connexion department</b><div class="small">Visit the Connexion department</div></div><b>→</b>
+      <div><b>School wellbeing team</b><div class="small">Visit the School wellbeing team</div></div><b>→</b>
     </div>
     <div class="resource">
-      <div><b>someone you trust</b><div class="small">teacher · parent · guardian · friend · another trusted adult</div></div><b>→</b>
+      <div><b>A trusted person</b><div class="small">Teacher · parent · guardian · friend · another trusted adult</div></div><b>→</b>
     </div>
     <div class="resource">
-      <div><b>if someone is in immediate danger</b><div class="small">Contact a trusted adult or local emergency services immediately.</div></div><b>→</b>
+      <div><b>Immediate safety</b><div class="small">Contact a trusted adult or local emergency services immediately.</div></div><b>→</b>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap footerline">
-    <div><b>TEAMCARE</b><br>made by students, hopefully not during a free period.</div>
+    <div><b>TEAMCARE</b><br>A student-led project for connection and wellbeing.</div>
     <div>© 2026 · school project</div>
   </div>
 </footer>
 
 <script>
 const quotes=[
-'“You don’t have to have your entire life figured out while you’re trying to survive third period.”',
-'“One bad grade is not a character development arc.”',
+'“You don’t have to have your entire life figured out while you’re trying to get through the school day.”',
+'“One difficult result does not define your ability or your future.”',
 '“It is okay to outgrow people. It is also okay to miss them.”',
 '“You are allowed to rest before you completely crash.”',
-'“Nobody actually knows what they’re doing. Some people just type faster.”',
+'“It is okay to ask questions and learn at your own pace.”',
 '“You can care about your future without ruining your present.”'
 ];
 let qi=0;

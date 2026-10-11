@@ -377,9 +377,41 @@ footer{background:#163c3e;margin-top:40px;padding:38px 0}
  .moments{padding-top:49px}.moment-grid{grid-template-columns:1fr 1fr;gap:14px}.moment-card img{height:190px}.moment-note{grid-column:1/-1;min-height:205px}.image-credit{line-height:1.6}
 }
 @media(max-width:460px){.moment-grid{grid-template-columns:1fr}.moment-card img{height:245px}.moment-note{grid-column:auto}}
+/* live movement + tighter editorial rhythm */
+.scroll-progress{position:fixed;z-index:30;left:0;top:0;width:100%;height:3px;transform:scaleX(0);transform-origin:left center;background:#d9b85f;pointer-events:none}
+.hero-cinema{height:clamp(440px,68svh,680px);min-height:0;overflow:hidden;isolation:isolate;background:#153c3e}
+.hero-cinema:after{content:"";display:block;position:absolute;inset:-3%;z-index:-2;background:url("https://images.unsplash.com/photo-1758270705172-07b53627dfcb?auto=format&fit=crop&w=1800&q=85") center 42%/cover no-repeat;animation:heroDrift 28s ease-in-out infinite alternate;will-change:transform}
+.hero-cinema:before{z-index:-1;background:linear-gradient(0deg,#102d31a8 0%,#102d3148 35%,#102d3100 80%),linear-gradient(90deg,#102d3128,transparent 80%)}
+@keyframes heroDrift{from{transform:scale(1);background-position:50% 44%}to{transform:scale(1.09);background-position:53% 48%}}
+.hero-content{padding-bottom:4px}
+.hero-cinema .hero-overline{animation:riseIn .75s .1s both}
+.hero-cinema h1{animation:riseIn .95s .25s both}
+.hero-discover{animation:riseIn .75s .48s both}
+@keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.motion-ribbon{overflow:hidden;padding:13px 0 14px;background:#e7d18a;color:#173f42;border-bottom:1px solid #d8c67e}
+.motion-ribbon-track{width:max-content;display:flex;align-items:center;gap:24px;white-space:nowrap;animation:ribbonMove 25s linear infinite;font-size:.62rem;font-weight:900;letter-spacing:.2em}
+.motion-ribbon-track i{font-style:normal;color:#9c7835;font-size:1rem}
+@keyframes ribbonMove{to{transform:translateX(-50%)}}
+.brand-intro{padding:72px 0 70px}
+section{padding:42px 0 48px}
+#what-we-do{padding-top:40px;padding-bottom:44px}
+.moments{padding-top:50px;padding-bottom:45px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.25,1);transition-delay:var(--reveal-delay,0ms)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.card,.moment-card{transition:transform .45s cubic-bezier(.2,.7,.25,1),opacity .75s ease;transition-delay:var(--reveal-delay,0ms)}
+.card:hover{transform:translateY(-6px)}
+.moment-card img{transition:transform .7s cubic-bezier(.2,.7,.25,1),filter .5s}
+.moment-card:hover img{transform:scale(1.035);filter:saturate(1.08)}
+.links a{position:relative}
+.links a:after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:1px;background:#b18d43;transition:right .24s ease}
+.links a:hover:after{right:0}
+.btn{transition:transform .2s ease,background .2s ease,color .2s ease}
+@media(max-width:700px){.hero-cinema{height:clamp(480px,72svh,620px);padding:0 24px 53px}.hero-cinema h1{font-size:clamp(2.9rem,10.4vw,4.4rem);line-height:.98}.hero-cinema:after{background-position:53% center}.brand-intro{padding:50px 0 44px}.motion-ribbon{padding:11px 0}#what-we-do{padding-top:34px;padding-bottom:34px}.moments{padding-top:38px;padding-bottom:34px}}
+@media(prefers-reduced-motion:reduce){.hero-cinema:after,.motion-ribbon-track{animation:none}.hero-cinema .hero-overline,.hero-cinema h1,.hero-discover{animation:none}.reveal{opacity:1;transform:none;transition:none}.moment-card img{transition:none}}
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <nav>
   <div class="wrap nav">
@@ -402,6 +434,7 @@ footer{background:#163c3e;margin-top:40px;padding:38px 0}
   </div>
 </header>
 
+<div class="motion-ribbon" aria-label="TEAMCARE: check in, let it out, take a breather"><div class="motion-ribbon-track"><span>CHECK IN</span><i>✳</i><span>LET IT OUT</span><i>✳</i><span>FIND YOUR PEOPLE</span><i>✳</i><span>TAKE A BREATHER</span><i>✳</i><span>CHECK IN</span><i>✳</i><span>LET IT OUT</span><i>✳</i><span>FIND YOUR PEOPLE</span><i>✳</i><span>TAKE A BREATHER</span><i>✳</i></div></div>
 <section class="brand-intro wrap" id="intro">
   <p class="editorial-label">A SPACE FOR EVERYDAY SCHOOL LIFE</p>
   <h2>School can be a lot.<br>This is a little space to breathe.</h2>
@@ -535,6 +568,13 @@ footer{background:#163c3e;margin-top:40px;padding:38px 0}
 </footer>
 
 <script>
+// Motion system: cinematic hero, scroll reveals, and a quiet reading-progress line.
+const progressBar=document.getElementById('scrollProgress');
+function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progressBar.style.transform=`scaleX(${max>0?scrollY/max:0})`}
+window.addEventListener('scroll',updateProgress,{passive:true});window.addEventListener('resize',updateProgress);updateProgress();
+const revealItems=document.querySelectorAll('.brand-intro,.section-title,.card,.moment-card,#check .panel,#say .panel,#submission-form .send-panel,#wall .wall,#help .panel');
+revealItems.forEach((el,i)=>{el.classList.add('reveal');if(el.classList.contains('card')||el.classList.contains('moment-card'))el.style.setProperty('--reveal-delay',`${(i%3)*90}ms`)});
+if('IntersectionObserver'in window){const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.13,rootMargin:'0px 0px -35px 0px'});revealItems.forEach(el=>revealObserver.observe(el))}else{revealItems.forEach(el=>el.classList.add('is-visible'))}
 const quotes=[
 '“You don’t have to have your entire life figured out while you’re trying to survive third period.”',
 '“One bad grade is not a character development arc.”',

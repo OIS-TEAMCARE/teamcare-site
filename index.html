@@ -313,6 +313,70 @@ html{scroll-padding-top:76px}
 #intro .section-title h2{font-size:clamp(2rem,4vw,3rem)}
 @media(max-width:700px){.hero-cinema{min-height:calc(90svh - 60px);padding:68px 24px 92px;background-position:54% center}.hero-cinema:before{background:linear-gradient(0deg,#0b292d9c 0%,#0b292d70 43%,#0b292d20 100%)}.hero-content{width:100%}.hero-cinema .tape{margin-bottom:21px}.hero-cinema h1{font-size:clamp(3.35rem,13vw,5.8rem);line-height:.92}.hero-cinema>div>p:not(.hero-overline){font-size:.95rem;line-height:1.7}.hero-cinema .buttons{gap:11px}.hero-cinema .btn{font-size:.77rem}.hero-scroll{right:24px;bottom:24px}.marquee-band{padding:15px 0}#intro{padding-top:42px}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+/* refined, image-led editorial layout inspired by premium brand homepages */
+body{background:#f5f4ef;color:#172525;font-family:Inter,"Aptos",Arial,sans-serif;line-height:1.7}
+nav{position:sticky;background:#fbfaf7f2;border-bottom:1px solid #deded6;box-shadow:none;backdrop-filter:blur(14px)}
+.nav{min-height:78px}
+.logo .teamcare-mark{border-radius:50%;box-shadow:none}
+.logo span{background:none;border:0;border-left:1px solid #c6c8bd;border-radius:0;color:#62716e;padding-left:13px;text-transform:uppercase;letter-spacing:.12em;font-size:.61rem}
+.links{gap:clamp(14px,2vw,30px);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:#293c3b}
+.hero-cinema{min-height:min(760px,78svh);height:clamp(540px,78svh,760px);padding:0 max(6vw,calc((100vw - 1180px)/2)) 78px;display:flex;align-items:flex-end;background-position:center 42%;}
+.hero-cinema:before{background:linear-gradient(0deg,#102d31bc 0%,#102d3166 34%,#102d310a 78%),linear-gradient(90deg,#102d3140,transparent 82%)}
+.hero-cinema:after{content:none}
+.hero-content{width:min(840px,88%)}
+.hero-cinema .hero-overline{margin:0 0 20px!important;font-size:.69rem!important;letter-spacing:.23em;color:#f5db96!important}
+.hero-cinema h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(3.6rem,8.4vw,7.2rem);line-height:.91;letter-spacing:-.045em;max-width:1000px;margin:0 0 26px;color:#fff;text-wrap:balance}
+.hero-discover{display:inline-flex;align-items:center;gap:18px;color:#fff;font-size:.66rem;font-weight:800;letter-spacing:.17em}
+.hero-discover span{display:grid;place-items:center;width:31px;height:31px;border:1px solid #ffffffa8;border-radius:50%;font-size:1rem;transition:transform .2s}
+.hero-discover:hover span{transform:translateY(3px)}
+.hero-cinema .hero-art,.hero-cinema .tape,.hero-cinema .buttons,.hero-cinema .tiny{display:none!important}
+.brand-intro{width:min(850px,88%);padding:clamp(80px,11vw,145px) 0 clamp(70px,9vw,115px);text-align:center;margin:auto}
+.editorial-label{margin:0 0 22px!important;color:#8c7135!important;font-size:.65rem!important;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.brand-intro h2{margin:0 auto 22px;max-width:830px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.45rem,5.2vw,4.7rem);font-weight:400;line-height:1.08;letter-spacing:-.045em;color:#163c3e}
+.brand-intro>p:not(.editorial-label){max-width:650px;margin:0 auto;color:#596a68;font-size:1rem;line-height:1.85}
+.brand-intro .buttons{justify-content:center;margin-top:29px}
+.btn{border-radius:2px;box-shadow:none;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:14px 19px}
+.btn:hover{transform:translateY(-2px);box-shadow:none}
+.btn.alt{border-radius:2px;box-shadow:none}
+section{padding:54px 0 62px}
+#what-we-do{border-top:1px solid #deded6}
+.section-title{margin-bottom:27px;gap:14px}
+.section-title h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.9rem,3.7vw,3rem);font-weight:400;letter-spacing:-.04em}
+.section-title span{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.grid{gap:0;border-top:1px solid #d9ddd6;border-bottom:1px solid #d9ddd6}
+.card,.panel{border:0;border-radius:0;box-shadow:none;background:transparent}
+.card{padding:24px 25px;min-height:190px}
+.card+.card{border-left:1px solid #d9ddd6}
+.card:first-child,.card:nth-child(2),.card:nth-child(3){border-top:0;background:transparent}
+.card h3{font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;font-weight:400}
+.card p{font-size:.87rem;color:#667572}
+.emoji{font-size:1.3rem}
+.moments{padding-top:75px;padding-bottom:65px}
+.moment-grid{grid-template-columns:1.1fr 1fr .82fr;gap:20px}
+.moment-card{border:0;border-radius:0;box-shadow:none;background:transparent;min-height:0}
+.moment-card img{height:clamp(190px,25vw,310px)}
+.moment-tall{transform:none}
+.moment-card figcaption{padding:16px 0}
+.moment-card figcaption b{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;font-weight:400}
+.moment-note{padding:24px;background:#e9e3d5;justify-content:center}
+.moment-note blockquote{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.25rem,2vw,1.8rem);font-weight:400}
+.image-credit{font-size:.64rem;text-align:left;margin-top:18px}
+.panel{padding:clamp(24px,4vw,45px)}
+.mood{border-radius:2px;background:#f7f6f1}
+.wall{border-radius:0;box-shadow:none}
+.send-panel{background:#ebe8dd;border:0}
+.resource{border-color:#dadbd4}
+footer{background:#163c3e;margin-top:40px;padding:38px 0}
+@media(max-width:700px){
+ .nav{min-height:64px}.logo span{display:none}.links{gap:15px;font-size:.61rem}
+ .hero-cinema{height:clamp(560px,84svh,760px);min-height:0;padding:0 24px 66px;background-position:53% center}
+ .hero-cinema:before{background:linear-gradient(0deg,#102d31c9 0%,#102d3175 37%,#102d3110 82%)}
+ .hero-content{width:100%}.hero-cinema h1{font-size:clamp(3.5rem,15vw,6rem)}.hero-cinema .hero-overline{font-size:.58rem!important;letter-spacing:.17em}
+ .brand-intro{padding:76px 0 64px}.brand-intro h2{font-size:clamp(2.35rem,10vw,3.8rem)}.brand-intro>p:not(.editorial-label){font-size:.93rem}
+ #what-we-do{padding-top:45px}.grid{grid-template-columns:1fr;border-bottom:0}.card{padding:19px 3px;min-height:0;border-bottom:1px solid #d9ddd6}.card+.card{border-left:0}
+ .moments{padding-top:49px}.moment-grid{grid-template-columns:1fr 1fr;gap:14px}.moment-card img{height:190px}.moment-note{grid-column:1/-1;min-height:205px}.image-credit{line-height:1.6}
+}
+@media(max-width:460px){.moment-grid{grid-template-columns:1fr}.moment-card img{height:245px}.moment-note{grid-column:auto}}
 </style>
 </head>
 <body>
@@ -332,22 +396,19 @@ html{scroll-padding-top:76px}
 
 <header class="hero wrap hero-cinema">
   <div class="hero-content">
-    <span class="tape">ok but hear us out</span>
     <p class="hero-overline">TEAMCARE · A STUDENT-MADE SPACE</p>
-    <h1>YOU DON’T HAVE<br>TO DO IT SOLO.</h1>
-    <p>School gets loud. Life gets weird. TEAMCARE is a place to check in, let it out, share a song, and remember you’re not the only one figuring it out. Even if all you’ve got is “bro, I need a minute.”</p>
-    <div class="buttons">
-      <a class="btn" href="#check">check in with yourself →</a>
-      <a class="btn alt" href="#say">i need to yap →</a>
-    </div>
-    <div class="tiny">no motivational speeches. promise.</div>
+    <h1>A LITTLE SPACE<br>TO BREATHE.</h1>
+    <a class="hero-discover" href="#intro">DISCOVER TEAMCARE <span>↓</span></a>
   </div>
-  <a class="hero-scroll" href="#intro" aria-label="Scroll to learn about TEAMCARE"><span></span>SCROLL A LITTLE</a>
 </header>
 
-<section class="wrap marquee-band" aria-label="TEAMCARE activities"><div class="marquee-track"><span>CHECK IN</span><i>✳</i><span>LET IT OUT</span><i>✳</i><span>FIND YOUR PEOPLE</span><i>✳</i><span>TAKE A BREATHER</span><i>✳</i><span>CHECK IN</span><i>✳</i><span>LET IT OUT</span><i>✳</i><span>FIND YOUR PEOPLE</span><i>✳</i><span>TAKE A BREATHER</span><i>✳</i></div></section>
-
-<section class="wrap" id="intro">
+<section class="brand-intro wrap" id="intro">
+  <p class="editorial-label">A SPACE FOR EVERYDAY SCHOOL LIFE</p>
+  <h2>School can be a lot.<br>This is a little space to breathe.</h2>
+  <p>TEAMCARE is a student-made corner for honest check-ins, kind notes, good music, and those days when you need to let it out. No perfect words, no pressure to have it all figured out. Just a reminder that you are not doing it solo.</p>
+  <div class="buttons"><a class="btn" href="#check">check in with yourself →</a><a class="btn alt" href="#say">i need to yap →</a></div>
+</section>
+<section class="wrap" id="what-we-do">
   <div class="section-title"><h2>what is this?</h2><span>01</span></div>
   <div class="grid">
     <div class="card">

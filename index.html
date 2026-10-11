@@ -262,6 +262,31 @@ footer{margin-top:44px;background:linear-gradient(115deg,#064f52,#0c6867);paddin
  .card{padding:20px}.panel{padding:20px}
 }
 
+.photo-feature{padding-top:8px;padding-bottom:22px}
+.feature-photo{position:relative;height:clamp(280px,48vw,520px);margin:0;overflow:hidden;border-radius:28px;background:#c8d9cf;box-shadow:0 22px 60px #183b3d20}
+.feature-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#102f32de 0%,#102f3299 35%,transparent 75%)}
+.feature-photo>img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82)}
+.feature-caption{position:absolute;z-index:1;left:clamp(22px,5vw,58px);top:50%;transform:translateY(-50%);max-width:460px;color:white;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.caption-kicker{padding:7px 11px;border-radius:999px;background:#f4d278;color:#254b4a;text-transform:uppercase;font-size:.69rem;letter-spacing:.1em;font-weight:900}
+.feature-caption strong{font-size:clamp(2.35rem,6vw,5rem);line-height:.93;letter-spacing:-.07em;text-shadow:0 3px 20px #0004}
+.caption-note{font-size:.93rem;color:#f0f5ee}
+.photo-sticker{position:absolute;z-index:2;right:clamp(18px,4vw,52px);bottom:34px;display:grid;place-content:center;width:108px;height:108px;background:#f2d278;color:#16464a;border-radius:50%;text-align:center;font-size:.78rem;line-height:1.15;font-weight:900;transform:rotate(9deg);box-shadow:0 10px 24px #102d2d35}
+.moments{padding-top:32px;padding-bottom:36px}
+.moment-grid{display:grid;grid-template-columns:1.12fr 1fr .88fr;gap:18px;align-items:stretch}
+.moment-card{position:relative;min-height:300px;margin:0;border:1px solid #d5e2da;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 12px 32px #183b3d0c}
+.moment-card img{display:block;width:100%;height:225px;object-fit:cover}
+.moment-card figcaption{display:flex;flex-direction:column;gap:4px;padding:15px 18px;color:var(--ink)}
+.moment-card figcaption b{font-size:1.02rem;color:var(--teal-deep)}
+.moment-card figcaption span{font-size:.8rem;color:var(--muted)}
+.moment-tall{transform:translateY(14px)}
+.moment-note{min-height:260px;background:#f8e9e3;border:1px solid #efd5cc;padding:26px;display:flex;flex-direction:column;justify-content:center}
+.moment-note blockquote{margin:12px 0;font-size:clamp(1.25rem,2.5vw,1.7rem);line-height:1.2;font-weight:800;color:#664e4b;letter-spacing:-.04em}
+.moment-note figcaption{padding:0;color:#846965;font-size:.74rem}
+.note-doodle{font-size:2rem;color:#bf9330}
+.image-credit{margin:26px 0 0;text-align:right;color:#7b8a85;font-size:.68rem}
+.image-credit a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:2px}
+@media(max-width:760px){.feature-photo{height:390px;border-radius:22px}.feature-photo:after{background:linear-gradient(0deg,#102f32dd 0%,#102f3299 45%,#102f3210 100%)}.feature-caption{top:auto;bottom:25px;left:22px;right:22px;transform:none}.feature-caption strong{font-size:clamp(2.6rem,12vw,4rem)}.caption-note{font-size:.82rem}.photo-sticker{width:84px;height:84px;top:18px;right:18px;bottom:auto;font-size:.67rem}.moment-grid{grid-template-columns:1fr 1fr;gap:12px}.moment-card{min-height:0}.moment-card img{height:180px}.moment-tall{transform:none}.moment-note{min-height:220px;grid-column:1/-1}.image-credit{text-align:left}}
+@media(max-width:460px){.moment-grid{grid-template-columns:1fr}.moment-card img{height:220px}.moment-note{grid-column:auto;min-height:200px}}
 </style>
 </head>
 <body>
@@ -295,6 +320,14 @@ footer{margin-top:44px;background:linear-gradient(115deg,#064f52,#0c6867);paddin
   <div class="hero-art" aria-hidden="true"><div class="art-orbit"></div><div class="art-card art-card-main"><span class="art-spark">✳</span><b>a little space<br>to breathe.</b><small>check in · connect · reset</small></div><div class="art-card art-card-note">you don't have to<br>figure it all out today.</div><div class="art-dot art-dot-one">✦</div><div class="art-dot art-dot-two">✳</div></div>
 </header>
 
+<section class="wrap photo-feature" aria-label="A school community that gets it">
+  <figure class="feature-photo">
+    <img src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?auto=format&amp;fit=crop&amp;w=1800&amp;q=85" alt="Students working together around a laptop" fetchpriority="high">
+    <figcaption class="feature-caption"><span class="caption-kicker">school is a lot sometimes</span><strong>you don’t have to<br>do it solo, bro.</strong><span class="caption-note">little check-ins. real people. no perfect answers.</span></figcaption>
+    <span class="photo-sticker" aria-hidden="true">you got this<br>ish ✳</span>
+  </figure>
+</section>
+
 <section class="wrap">
   <div class="section-title"><h2>what is this?</h2><span>01</span></div>
   <div class="grid">
@@ -314,6 +347,16 @@ footer{margin-top:44px;background:linear-gradient(115deg,#064f52,#0c6867);paddin
       <p>Playlists, tiny distractions and things that make the school week approximately 4% less painful.</p>
     </div>
   </div>
+</section>
+
+<section class="wrap moments" aria-label="Small moments that help">
+  <div class="section-title"><h2>little things that help.</h2><span>not a life manual, promise</span></div>
+  <div class="moment-grid">
+    <figure class="moment-card moment-tall"><img src="https://images.unsplash.com/photo-1759143102544-790af882ff45?auto=format&amp;fit=crop&amp;w=1000&amp;q=82" alt="Two school friends talking together" loading="lazy"><figcaption><b>talk it out</b><span>even if it starts with “idk, it’s just a lot.”</span></figcaption></figure>
+    <figure class="moment-card"><img src="https://images.unsplash.com/photo-1768501324377-879ba189d346?auto=format&amp;fit=crop&amp;w=900&amp;q=82" alt="A student writing with headphones on" loading="lazy"><figcaption><b>take a breather</b><span>one song. one page. one thing at a time.</span></figcaption></figure>
+    <figure class="moment-card moment-note"><div class="note-doodle" aria-hidden="true">✳</div><blockquote>“you are allowed to be a work in progress and still be proud of yourself.”</blockquote><figcaption>tiny reminder for the group chat</figcaption></figure>
+  </div>
+  <p class="image-credit">Photos by <a href="https://unsplash.com/photos/diverse-group-of-students-gathered-around-a-laptop-EA0-iajPYFE" target="_blank" rel="noopener">Vitaly Gariev</a>, <a href="https://unsplash.com/photos/two-schoolgirls-in-uniform-talking-to-each-other-aizNGa9MFik" target="_blank" rel="noopener">Sushanta Rokka</a>, and <a href="https://unsplash.com/photos/person-wearing-headphones-writing-in-notebook-at-desk-VsAapWHvex4" target="_blank" rel="noopener">Marina Marcato</a> via Unsplash.</p>
 </section>
 
 <section class="wrap" id="check">

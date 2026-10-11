@@ -428,6 +428,68 @@ footer{box-shadow:0 -12px 40px #163c3e15}
 .card.reveal,.moment-card.reveal{will-change:transform,opacity}
 @media(max-width:700px){body:before{inset:-5vh -25vw;background-position:55% center}.brand-intro:before{inset:3% -5vw}.panel{backdrop-filter:blur(10px)}}
 @media(prefers-reduced-motion:reduce){body:before{transform:none!important}.moment-note{animation:none}.reveal{transform:none;opacity:1}}
+/* full-bleed, fixed photo with the story panels travelling above it (OHI-inspired) */
+html{background:#102c36}
+body{background:transparent!important;isolation:isolate;position:relative;color:#163b40}
+body:before{content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;background:linear-gradient(180deg,#092a3c70 0%,#102f42a8 55%,#102b37b8 100%),url("https://images.unsplash.com/photo-1758270705172-07b53627dfcb?auto=format&fit=crop&w=1800&q=85") center/cover no-repeat;transform:none!important}
+body:after{content:none}
+nav{position:absolute!important;top:0;left:0;width:100%;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important}
+.nav{width:min(1180px,90%);min-height:82px}
+.logo,.links{color:#fff;text-shadow:0 1px 12px #071d3580}
+.logo img{box-shadow:0 4px 16px #061d3440!important}
+.logo span{color:#fff;border-color:#ffffff70}
+.hero-cinema.wrap{width:100%;max-width:none;margin:0;height:clamp(600px,92svh,900px);min-height:600px;padding:0 max(6vw,calc((100vw - 1180px)/2)) 84px;border-radius:0}
+.hero-cinema:after{background-position:center 45%;animation:heroDrift 34s ease-in-out infinite alternate}
+.hero-cinema:before{background:linear-gradient(0deg,#061b2bcc 0%,#102f4270 36%,#102f4210 85%)}
+.hero-content{width:min(920px,90%);padding-bottom:0}
+.hero-cinema h1{font-family:Inter,Arial,sans-serif;font-weight:850;letter-spacing:-.055em;line-height:.91;text-transform:uppercase;font-size:clamp(3.7rem,10vw,8rem)}
+.hero-cinema .hero-overline{font-size:.72rem!important;letter-spacing:.17em}
+.hero-discover{font-size:.72rem}
+.motion-ribbon{position:relative;z-index:1}
+.brand-intro,section.wrap{width:min(1060px,88%);position:relative;margin:44px auto;padding:clamp(28px,5vw,64px);background:#fbfcf7f2;color:#173c41;box-shadow:0 22px 70px #061b2c50;backdrop-filter:blur(16px);border-radius:5px}
+.brand-intro{width:min(1060px,88%);text-align:left;padding-top:clamp(38px,6vw,75px);padding-bottom:clamp(38px,6vw,75px)}
+.brand-intro:before{content:none}
+.brand-intro h2{margin:0 0 22px;max-width:820px;text-align:left}
+.brand-intro>p:not(.editorial-label){margin:0;max-width:680px}
+.brand-intro .buttons{justify-content:flex-start}
+#what-we-do,#say,#wall{background:#142e59f2;color:#fff}
+#what-we-do .section-title h2,#what-we-do .section-title span,#say .section-title h2,#say .section-title span,#wall .section-title h2,#wall .section-title span{color:#fff}
+#what-we-do .grid{background:transparent;border-color:#ffffff55;box-shadow:none;backdrop-filter:none}
+#what-we-do .card{color:#fff}
+#what-we-do .card+.card{border-color:#ffffff55}
+#what-we-do .card p,#say .small{color:#e2e9f1}
+#what-we-do .card h3{color:#f8f4df}
+#say .panel{padding:22px 24px;border:1px solid #ffffff64;border-radius:5px;color:#fff;background:#ffffff0b!important;backdrop-filter:none!important}
+#say .btn{background:#e5ce85;border-color:#e5ce85;color:#15384a}
+#check .panel{border:0;border-radius:5px;background:#fff!important;box-shadow:none}
+#submission-form .send-panel{background:#edf5f3!important;border:0;border-radius:5px}
+#wall .wall{border:1px solid #ffffff6b;color:#fff;background:#ffffff12!important}
+#wall .btn.alt{background:#fff;color:#173b40}
+#help .panel{background:#fff!important}
+.moments{padding-top:clamp(30px,5vw,58px)!important;padding-bottom:clamp(28px,4vw,45px)!important}
+.moment-grid{gap:clamp(12px,2vw,24px)}
+.moment-card img{box-shadow:0 18px 36px #0c283866}
+.moment-note{animation:noteFloat 8s ease-in-out infinite alternate}
+.section-title h2{color:inherit}
+.image-credit{color:#536c70}
+.nav-toggle{display:none}
+@media(max-width:700px){
+ .nav{width:calc(100% - 36px);min-height:68px}.logo{gap:5px}.logo .school-mark{width:32px;height:32px}.logo .teamcare-mark{width:46px;height:46px}.logo span{display:none}
+ .nav-toggle{display:grid;place-content:center;gap:5px;width:44px;height:44px;border:1px solid #ffffffa0;border-radius:50%;background:#102f4270;color:#fff;cursor:pointer}
+ .nav-toggle i{display:block;width:17px;height:2px;background:#fff}
+ .links{display:none;position:absolute;top:65px;right:18px;z-index:20;min-width:210px;padding:14px 17px;background:#142e59f5;border:1px solid #ffffff60;flex-direction:column;gap:15px;text-shadow:none;box-shadow:0 14px 35px #071d3550}
+ .nav-open .links{display:flex}
+ .hero-cinema.wrap{width:100%;height:clamp(600px,94svh,820px);min-height:600px;padding:0 24px 64px}
+ .hero-cinema h1{font-size:clamp(3.25rem,14vw,5.7rem);line-height:.94}
+ .brand-intro,section.wrap{width:calc(100% - 32px);margin:28px auto;padding:27px 22px;border-radius:4px}
+ .brand-intro{padding-top:36px;padding-bottom:36px}.brand-intro h2{font-size:clamp(2.2rem,9vw,3.25rem)}
+ #what-we-do .grid{grid-template-columns:1fr}.card{min-height:0;padding:18px 4px}.card+.card{border-left:0;border-top:1px solid #ffffff55}
+ .moment-grid{grid-template-columns:1fr 1fr}.moment-card img{height:185px}.moment-note{grid-column:1/-1}
+ #say .split{grid-template-columns:1fr}
+ .motion-ribbon{padding:11px 0}
+}
+@media(max-width:460px){.moment-grid{grid-template-columns:1fr}.moment-card img{height:230px}.moment-note{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.hero-cinema:after,.motion-ribbon-track,.moment-note{animation:none!important}body:before{transform:none!important}}
 </style>
 </head>
 <body>
@@ -436,7 +498,8 @@ footer{box-shadow:0 -12px 40px #163c3e15}
 <nav>
   <div class="wrap nav">
     <a class="logo" href="#"><img class="school-mark" src="school-logo.png" alt="School logo"><img class="teamcare-mark" src="teamcare-logo.png" alt="TEAMCARE"><span>student-made</span></a>
-    <div class="links">
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+<div class="links">
       <a href="#check">check in</a>
       <a href="#say">say something</a>
       <a href="#submission-form">send a response</a>
@@ -595,6 +658,7 @@ window.addEventListener('scroll',updateProgress,{passive:true});window.addEventL
 const revealItems=document.querySelectorAll('.brand-intro,.section-title,.card,.moment-card,#check .panel,#say .panel,#submission-form .send-panel,#wall .wall,#help .panel');
 revealItems.forEach((el,i)=>{el.classList.add('reveal');if(el.classList.contains('card')||el.classList.contains('moment-card'))el.style.setProperty('--reveal-delay',`${(i%3)*90}ms`)});
 if('IntersectionObserver'in window){const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{threshold:.13,rootMargin:'0px 0px -35px 0px'});revealItems.forEach(el=>revealObserver.observe(el))}else{revealItems.forEach(el=>el.classList.add('is-visible'))}
+const navToggle=document.querySelector(".nav-toggle");if(navToggle){navToggle.addEventListener("click",()=>{const open=navToggle.getAttribute("aria-expanded")!=="true";navToggle.setAttribute("aria-expanded",String(open));navToggle.setAttribute("aria-label",open?"Close menu":"Open menu");document.querySelector(".nav").classList.toggle("nav-open",open)});document.querySelectorAll(".links a").forEach(a=>a.addEventListener("click",()=>{document.querySelector(".nav").classList.remove("nav-open");navToggle.setAttribute("aria-expanded","false")}));}
 const quotes=[
 '“You don’t have to have your entire life figured out while you’re trying to survive third period.”',
 '“One bad grade is not a character development arc.”',

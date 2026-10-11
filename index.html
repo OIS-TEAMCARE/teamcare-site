@@ -761,6 +761,50 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
  #playlist-section .playlist-library{padding:13px 12px 8px}
 }
 @media(prefers-reduced-motion:reduce){#playlist-section .playlist:after{animation:none}.cover-record,.sound-bars i,#playlist-section>.section-title:after{animation:none!important}}
+/* Spotify-inspired TEAMCARE listening lounge */
+#playlist-section{position:relative;isolation:isolate;padding:clamp(42px,7vw,76px) 0;margin-top:22px;color:#f4f7f1;background:radial-gradient(ellipse at 82% 4%,#214d3c 0,transparent 38%),linear-gradient(145deg,#101c19,#172722 58%,#10201b);overflow:hidden}
+#playlist-section:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.16;background-image:radial-gradient(#a8d7b7 0.7px,transparent .7px);background-size:17px 17px;mask-image:linear-gradient(90deg,transparent,#000)}
+#playlist-section .section-title h2{color:#fff;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.07em}
+#playlist-section .section-title span{color:#b3c7b8}
+#playlist-section .panel{padding:clamp(16px,3vw,28px);border:1px solid #ffffff22;border-radius:24px;background:linear-gradient(145deg,#ffffff13,#ffffff08);box-shadow:0 24px 70px #07120d66;backdrop-filter:blur(18px)}
+#playlist-section .playlist{position:relative;min-height:176px;overflow:hidden;gap:20px;padding:24px;border:1px solid #ffffff2c;border-radius:18px;background:linear-gradient(110deg,#315d48,#1e3d31 62%,#182d25);box-shadow:0 14px 35px #07120d55}
+#playlist-section .playlist:after{content:"";position:absolute;width:250px;height:250px;right:9%;top:-150px;border-radius:50%;background:#b7e5ac24;filter:blur(18px);pointer-events:none}
+#playlist-section .cover{position:relative;flex:0 0 104px;width:104px;height:104px;border:1px solid #ffffff35;border-radius:14px;background:linear-gradient(145deg,#a8d781,#4c855d);box-shadow:0 9px 22px #07120d55;overflow:hidden}
+#playlist-section .cover-record{opacity:.7}
+#playlist-section .playlist b{color:#fff!important;font-family:Inter,system-ui,sans-serif!important;font-size:clamp(1.2rem,2.8vw,1.8rem)!important;font-weight:800!important;letter-spacing:-.045em!important}
+#playlist-section .playlist .small{color:#d1e0d4!important}
+#playlist-section .music-kicker{color:#a8d781}
+#playlist-section #playBtn{position:relative;z-index:1;background:#b8f28b!important;border:0!important;color:#13251a!important;border-radius:999px!important;padding:12px 20px!important;font-weight:800;box-shadow:0 5px 18px #07120d38!important}
+#playlist-section .playlist-suggest{margin-top:16px;padding:18px 20px;border:1px solid #ffffff1c;border-radius:16px;background:#ffffff0b}
+#playlist-section .playlist-suggest b,#playlist-section .playlist-library>b{color:#fff;font-family:Inter,system-ui,sans-serif;font-size:1.1rem;font-weight:750}
+#playlist-section .playlist-suggest p,#playlist-section .small{color:#b8c9be}
+#playlist-section .playlist-suggest .btn{border-radius:999px;background:#b8f28b;color:#13251a;border:0;box-shadow:none}
+#playlist-section .music-home-head{display:flex;align-items:center;justify-content:space-between;margin:30px 2px 14px}
+#playlist-section .music-home-head h3{margin:2px 0 0;color:#fff;font-size:clamp(1.3rem,3vw,1.75rem);letter-spacing:-.045em}
+#playlist-section .music-eq{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#ffffff12;color:#b8f28b;font-size:1.4rem}
+#playlist-section .vibe-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+#playlist-section .vibe-card{position:relative;display:flex;min-height:205px;flex-direction:column;align-items:flex-start;overflow:hidden;padding:18px;border:1px solid #ffffff22;border-radius:17px;color:white;transition:transform .22s ease,border-color .22s ease,filter .22s ease}
+#playlist-section .vibe-card:hover{transform:translateY(-5px);border-color:#c1f09b99;filter:brightness(1.12)}
+#playlist-section .vibe-card:after{content:"";position:absolute;width:150px;height:150px;right:-35px;top:-35px;border-radius:50%;background:#ffffff12;transition:transform .35s ease}
+#playlist-section .vibe-card:hover:after{transform:scale(1.25)}
+#playlist-section .vibe-focus{background:linear-gradient(145deg,#3a604b,#253c30)}
+#playlist-section .vibe-main{background:linear-gradient(145deg,#73543d,#46382e)}
+#playlist-section .vibe-reset{background:linear-gradient(145deg,#425b5c,#263d40)}
+#playlist-section .vibe-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#ffffff20;color:#d3f6b2;font-size:1.25rem}
+#playlist-section .vibe-label{margin-top:17px;color:#d3e9c5;font-size:.61rem;font-weight:850;letter-spacing:.13em}
+#playlist-section .vibe-card b{margin-top:2px;color:#fff;font-size:1.3rem;letter-spacing:-.04em}
+#playlist-section .vibe-card small{margin-top:2px;color:#e0e7df;font-size:.74rem}
+#playlist-section .vibe-card i{position:relative;z-index:1;margin-top:auto;padding-top:13px;color:#d5f5ba;font-size:.69rem;font-style:normal;font-weight:750}
+#playlist-section .playlist-library{margin-top:26px;padding:19px 20px 13px;border:1px solid #ffffff1c;border-radius:16px;background:#ffffff0a}
+#playlist-section .chips{margin-top:15px}
+#playlist-section .chip{color:#e8efe9;background:#ffffff0c!important;border-color:#ffffff2d!important}
+#playlist-section .chip.selected,#playlist-section .chip:hover{color:#13251a;background:#b8f28b!important;border-color:#b8f28b!important}
+#playlist-section .song{border-color:#ffffff1c}
+#playlist-section .song b{color:#fff!important}
+#playlist-section .song .lvl{color:#d7edc7!important;background:#ffffff12!important;border-color:#ffffff24!important}
+#playlist-section>.panel>p.small{margin:18px 3px 0;color:#c4d1c7}
+@media(max-width:700px){#playlist-section .vibe-grid{grid-template-columns:1fr}#playlist-section .vibe-card{min-height:174px}#playlist-section .playlist{grid-template-columns:82px minmax(0,1fr);gap:14px;padding:17px}#playlist-section .cover{width:78px;height:78px;flex-basis:78px}#playlist-section #playBtn{grid-column:2;justify-self:start;margin-top:-4px}#playlist-section .sound-bars{display:none}}
+@media(prefers-reduced-motion:reduce){#playlist-section .vibe-card{transition:none}}
 </style>
 </head>
 <body>
@@ -877,7 +921,7 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
 </section>
 
 <section class="wrap" id="playlist-section">
-  <div class="section-title"><h2>the playlist</h2><span>05 · extremely important</span></div>
+  <div class="section-title"><h2>your soundtrack</h2><span>05 · TEAMCARE FM</span></div>
   <div class="panel">
     <div class="playlist">
       <div class="cover" aria-label="TEAMCARE FM album cover"><div class="cover-record"><span></span></div><span class="cover-initials">TC<br>FM</span><span class="cover-spark">✦</span></div>
@@ -891,6 +935,12 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
     <div class="playlist-suggest"><div><span class="music-kicker">YOUR TURN · SONG DROP</span><b>suggest a song for the school list</b></div>
       <p class="small">School-appropriate songs only (no explicit lyrics). Title, artist and your level, no names needed. The team checks suggestions before they go on the list.</p>
       <a class="btn" href="#submission-form">suggest a song →</a>
+    </div>
+    <div class="music-home-head"><div><span class="music-kicker">MADE FOR THE SCHOOL DAY</span><h3>pick your current vibe</h3></div><span class="music-eq" aria-hidden="true">♫</span></div>
+    <div class="vibe-grid">
+      <a class="vibe-card vibe-focus" href="#submission-form"><span class="vibe-icon">◉</span><span class="vibe-label">LOCK IN</span><b>exam week</b><small>for the “one more chapter” era</small><i>＋ suggest a song</i></a>
+      <a class="vibe-card vibe-main" href="#submission-form"><span class="vibe-icon">✳</span><span class="vibe-label">MAIN CHARACTER</span><b>walk to class</b><small>soundtrack your entrance</small><i>＋ suggest a song</i></a>
+      <a class="vibe-card vibe-reset" href="#submission-form"><span class="vibe-icon">☾</span><span class="vibe-label">TAKE A BREATHER</span><b>reset mode</b><small>one song, then we try again</small><i>＋ suggest a song</i></a>
     </div>
     <div class="playlist-library"><b>the school-wide list</b>
       <div class="chips" id="songChips"></div>

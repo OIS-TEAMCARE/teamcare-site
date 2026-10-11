@@ -287,6 +287,32 @@ footer{margin-top:44px;background:linear-gradient(115deg,#064f52,#0c6867);paddin
 .image-credit a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:2px}
 @media(max-width:760px){.feature-photo{height:390px;border-radius:22px}.feature-photo:after{background:linear-gradient(0deg,#102f32dd 0%,#102f3299 45%,#102f3210 100%)}.feature-caption{top:auto;bottom:25px;left:22px;right:22px;transform:none}.feature-caption strong{font-size:clamp(2.6rem,12vw,4rem)}.caption-note{font-size:.82rem}.photo-sticker{width:84px;height:84px;top:18px;right:18px;bottom:auto;font-size:.67rem}.moment-grid{grid-template-columns:1fr 1fr;gap:12px}.moment-card{min-height:0}.moment-card img{height:180px}.moment-tall{transform:none}.moment-note{min-height:220px;grid-column:1/-1}.image-credit{text-align:left}}
 @media(max-width:460px){.moment-grid{grid-template-columns:1fr}.moment-card img{height:220px}.moment-note{grid-column:auto;min-height:200px}}
+/* cinematic TEAMCARE introduction */
+html{scroll-padding-top:76px}
+.hero-cinema{width:100%;max-width:none;margin:0;min-height:min(820px,calc(100svh - 76px));padding:clamp(70px,11vh,128px) max(5vw,calc((100vw - 1120px)/2)) 72px;display:flex;align-items:center;position:relative;isolation:isolate;overflow:hidden;background:#143c3d url("https://images.unsplash.com/photo-1758270705172-07b53627dfcb?auto=format&fit=crop&w=2200&q=88") center 43%/cover no-repeat;color:#fff}
+.hero-cinema:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#0b292de8 0%,#0b292dc4 37%,#0b292d58 72%,#0b292d20 100%),linear-gradient(0deg,#0b292d7a,transparent 44%)}
+.hero-cinema:after{content:"TC";position:absolute;z-index:-1;right:3vw;bottom:-.28em;color:#ffffff0d;font-family:Georgia,serif;font-size:min(44vw,640px);line-height:1;letter-spacing:-.12em;pointer-events:none}
+.hero-content{position:relative;z-index:1;width:min(760px,74%)}
+.hero-cinema .tape{margin-bottom:26px;background:#e6c36a;border-color:#f3dda0;color:#214548;transform:none;border-radius:2px;padding:8px 13px;letter-spacing:.08em;text-transform:uppercase;font-size:.69rem}
+.hero-overline{margin:0 0 17px!important;color:#e5d08e!important;font-size:.72rem!important;font-weight:800;letter-spacing:.22em;text-transform:uppercase}
+.hero-cinema h1{max-width:900px;margin:0 0 23px;color:#fff;font-size:clamp(4rem,9.4vw,8rem);line-height:.88;letter-spacing:-.075em;text-wrap:balance}
+.hero-cinema>div>p:not(.hero-overline){max-width:580px;color:#f0f4ee;font-size:clamp(1rem,1.35vw,1.16rem);line-height:1.8}
+.hero-cinema .buttons{margin-top:29px}
+.hero-cinema .btn{background:#f0d487;border-color:#f0d487;color:#153e41;box-shadow:0 8px 25px #0003}
+.hero-cinema .btn:hover{background:#f6e2a7}
+.hero-cinema .btn.alt{background:#ffffff12;border-color:#ffffff9c;color:#fff;box-shadow:none;backdrop-filter:blur(8px)}
+.hero-cinema .tiny{margin-top:19px;color:#e9eee9;font-weight:500}
+.hero-cinema .hero-art{display:none!important}
+.hero-scroll{position:absolute;right:max(5vw,calc((100vw - 1120px)/2));bottom:33px;display:flex;align-items:center;gap:11px;color:#fff;font-size:.63rem;font-weight:800;letter-spacing:.16em}
+.hero-scroll span{display:block;width:40px;height:1px;background:#e4cd83}
+.marquee-band{width:100%;overflow:hidden;padding:18px 0 20px;margin:0;background:#e7d18a;color:#173f42}
+.marquee-track{display:flex;width:max-content;align-items:center;gap:25px;white-space:nowrap;font-size:.7rem;font-weight:900;letter-spacing:.18em;animation:marquee 35s linear infinite}
+.marquee-track i{font-style:normal;color:#a77d32;font-size:1rem}
+@keyframes marquee{to{transform:translateX(-50%)}}
+#intro{padding-top:60px}
+#intro .section-title h2{font-size:clamp(2rem,4vw,3rem)}
+@media(max-width:700px){.hero-cinema{min-height:calc(90svh - 60px);padding:68px 24px 92px;background-position:54% center}.hero-cinema:before{background:linear-gradient(0deg,#0b292de8 0%,#0b292dbd 43%,#0b292d54 100%)}.hero-content{width:100%}.hero-cinema .tape{margin-bottom:21px}.hero-cinema h1{font-size:clamp(3.35rem,13vw,5.8rem);line-height:.92}.hero-cinema>div>p:not(.hero-overline){font-size:.95rem;line-height:1.7}.hero-cinema .buttons{gap:11px}.hero-cinema .btn{font-size:.77rem}.hero-scroll{right:24px;bottom:24px}.marquee-band{padding:15px 0}#intro{padding-top:42px}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 </style>
 </head>
 <body>
@@ -304,31 +330,24 @@ footer{margin-top:44px;background:linear-gradient(115deg,#064f52,#0c6867);paddin
   </div>
 </nav>
 
-<header class="hero wrap">
-  <span class="tape">ok but hear us out</span>
-  <h1>TEAM<br>CARE.</h1>
-  <p>
-    School can be a lot. This is basically a corner of the internet for
-    checking in, dumping your thoughts, finding music and remembering that
-    literally everyone is figuring stuff out.
-  </p>
-  <div class="buttons">
-    <a class="btn" href="#check">how am i doing? →</a>
-    <a class="btn alt" href="#say">i need to yap →</a>
+<header class="hero wrap hero-cinema">
+  <div class="hero-content">
+    <span class="tape">ok but hear us out</span>
+    <p class="hero-overline">TEAMCARE · A STUDENT-MADE SPACE</p>
+    <h1>YOU DON’T HAVE<br>TO DO IT SOLO.</h1>
+    <p>School gets loud. Life gets weird. TEAMCARE is a place to check in, let it out, share a song, and remember you’re not the only one figuring it out. Even if all you’ve got is “bro, I need a minute.”</p>
+    <div class="buttons">
+      <a class="btn" href="#check">check in with yourself →</a>
+      <a class="btn alt" href="#say">i need to yap →</a>
+    </div>
+    <div class="tiny">no motivational speeches. promise.</div>
   </div>
-  <div class="tiny">no motivational speeches. promise.</div>
-  <div class="hero-art" aria-hidden="true"><div class="art-orbit"></div><div class="art-card art-card-main"><span class="art-spark">✳</span><b>a little space<br>to breathe.</b><small>check in · connect · reset</small></div><div class="art-card art-card-note">you don't have to<br>figure it all out today.</div><div class="art-dot art-dot-one">✦</div><div class="art-dot art-dot-two">✳</div></div>
+  <a class="hero-scroll" href="#intro" aria-label="Scroll to learn about TEAMCARE"><span></span>SCROLL A LITTLE</a>
 </header>
 
-<section class="wrap photo-feature" aria-label="A school community that gets it">
-  <figure class="feature-photo">
-    <img src="https://images.unsplash.com/photo-1758270705172-07b53627dfcb?auto=format&amp;fit=crop&amp;w=1800&amp;q=85" alt="Students working together around a laptop" fetchpriority="high">
-    <figcaption class="feature-caption"><span class="caption-kicker">school is a lot sometimes</span><strong>you don’t have to<br>do it solo, bro.</strong><span class="caption-note">little check-ins. real people. no perfect answers.</span></figcaption>
-    <span class="photo-sticker" aria-hidden="true">you got this<br>ish ✳</span>
-  </figure>
-</section>
+<section class="wrap marquee-band" aria-label="TEAMCARE activities"><div class="marquee-track"><span>CHECK IN</span><i>✳</i><span>LET IT OUT</span><i>✳</i><span>FIND YOUR PEOPLE</span><i>✳</i><span>TAKE A BREATHER</span><i>✳</i><span>CHECK IN</span><i>✳</i><span>LET IT OUT</span><i>✳</i><span>FIND YOUR PEOPLE</span><i>✳</i><span>TAKE A BREATHER</span><i>✳</i></div></section>
 
-<section class="wrap">
+<section class="wrap" id="intro">
   <div class="section-title"><h2>what is this?</h2><span>01</span></div>
   <div class="grid">
     <div class="card">

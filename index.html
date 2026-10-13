@@ -833,6 +833,7 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
 /* Keep the desktop hero copy below the absolute navigation row */
 @media(min-width:701px){.hero-cinema .hero-content{transform:translateY(38px)}}
 @media(max-width:700px){.hero-cinema .hero-content{transform:none}}
+.playlist-status:disabled{cursor:default;opacity:.84;box-shadow:none}.playlist-status:disabled:hover{transform:none;box-shadow:none;background:var(--teal)}
 </style>
 </head>
 <body>
@@ -932,13 +933,13 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
 </section>
 
 <section class="wrap" id="submission-form">
-  <div class="section-title"><h2>your space.</h2><span>responses stay private</span></div>
-  <div class="panel send-panel"><div><span class="send-kicker">vent · check in · kindness · music</span><h3>say what you need to say.</h3><p class="small">Share a check-in, leave a kind note or suggest a song. Common swear words are blocked in typed answers, and every response is reviewed by the form owner before any possible use.</p></div><a class="btn" href="#submission-form" data-open-form>open the response form →</a><p class="small send-footnote">Your response will not appear on this website. Please leave out names and private details.</p></div>
+  <div class="section-title"><h2>your space.</h2><span>private · form editors only</span></div>
+  <div class="panel send-panel"><div><span class="send-kicker">vent · check in · kindness · music</span><h3>say what you need to say.</h3><p class="small">Share a check-in, leave a kind note or suggest a song. Common swear words are filtered in typed answers. Responses are reviewed by the form owner and form editors before any possible use.</p></div><a class="btn" href="#submission-form" data-open-form>open the response form →</a><p class="small send-footnote">Your response will not appear on this website. Please leave out names and private details.</p></div>
 </section>
 
 <dialog class="submission-dialog" id="submissionDialog" aria-labelledby="submissionTitle">
   <div class="dialog-head"><div><span class="send-kicker">TEAMCARE · student check-in</span><h2 id="submissionTitle">send it in.</h2></div><button class="dialog-close" type="button" aria-label="Close form" data-close-form>×</button></div>
-  <p class="small dialog-note">Responses go privately to the form owner for review. Common swear words are filtered, but please keep it kind and school-appropriate.</p>
+  <p class="small dialog-note">Responses are shared with the form owner and form editors for review. Common swear words are filtered, but please keep it kind and school-appropriate.</p>
   <iframe class="submission-frame" title="TEAMCARE student submissions" data-src="https://docs.google.com/forms/d/e/1FAIpQLSdjfhGoxMrQgRakm63BSbdOgVvJvn2pIghZDxEDro7yrHGpxg/viewform?embedded=true" loading="lazy">Loading the form…</iframe>
 </dialog>
 
@@ -958,7 +959,7 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
         <div class="small">songs submitted by students because apparently music is therapy now</div>
       </div>
       <div class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <a class="btn" id="playBtn" href="#" target="_blank" rel="noopener">play ↗</a>
+      <button class="btn playlist-status" id="playBtn" type="button" disabled>playlist coming soon</button>
     </div>
     <div class="playlist-suggest"><div><span class="music-kicker">YOUR TURN · SONG DROP</span><b>suggest a song for the school list</b></div>
       <p class="small">School-appropriate songs only (no explicit lyrics). Title, artist and your level, no names needed. The team checks suggestions before they go on the list.</p>
@@ -1038,7 +1039,7 @@ const LEVELS=['All','Grades 1–5','Grades 6–8','Grades 9–10','Grades 11–1
 let songFilter='All';
 (function(){
  const pb=document.getElementById('playBtn');
- if(PLAYLIST_URL){pb.href=PLAYLIST_URL}else{pb.onclick=e=>{e.preventDefault();alert('Playlist link coming soon!')}}
+ if(PLAYLIST_URL){const link=document.createElement('a');link.className='btn';link.id='playBtn';link.href=PLAYLIST_URL;link.target='_blank';link.rel='noopener noreferrer';link.textContent='play ↗';pb.replaceWith(link)}
 })();
 function renderSongs(){
  const chips=document.getElementById('songChips');chips.textContent='';

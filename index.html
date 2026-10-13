@@ -824,6 +824,12 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
 @media(max-width:700px){.moment-gallery{height:clamp(145px,39vw,205px)}}
 @media(max-width:460px){.moment-gallery{height:205px}}
 @media(prefers-reduced-motion:reduce){.moment-gallery>img{transition:none}.moment-gallery>img.is-active{transform:none}}
+/* Mobile hero cleanup: keep the logo row clear and reveal the headline sooner */
+.hero-cinema .hero-overline{animation:riseIn .45s .02s both!important}
+.hero-cinema h1{animation:riseIn .62s .08s both,titleSheen 10s .8s ease-in-out infinite!important}
+.hero-discover{animation:riseIn .5s .16s both!important}
+@media(max-width:700px){.hero-cinema .hero-overline{display:none!important}.hero-cinema .hero-content{width:100%}}
+@media(prefers-reduced-motion:reduce){.hero-cinema .hero-overline,.hero-cinema h1,.hero-discover{animation:none!important}}
 </style>
 </head>
 <body>

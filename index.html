@@ -834,6 +834,59 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
 @media(min-width:701px){.hero-cinema .hero-content{transform:translateY(38px)}}
 @media(max-width:700px){.hero-cinema .hero-content{transform:none}}
 .playlist-status:disabled{cursor:default;opacity:.84;box-shadow:none}.playlist-status:disabled:hover{transform:none;box-shadow:none;background:var(--teal)}
+
+/* Playlist layout correction: keep controls inside their cards and use the space well. */
+#playlist-section>.panel .playlist{
+  grid-template-columns:104px minmax(0,1fr) auto;
+  grid-template-rows:auto auto;
+  grid-template-areas:"cover title bars" "cover action action";
+  column-gap:22px;
+  row-gap:12px;
+}
+#playlist-section>.panel .playlist>.cover{grid-area:cover}
+#playlist-section>.panel .playlist>div[style]{grid-area:title;min-width:0}
+#playlist-section>.panel .playlist .sound-bars{grid-area:bars}
+#playlist-section>.panel .playlist #playBtn{
+  grid-area:action;
+  justify-self:start;
+  width:max-content;
+  max-width:100%;
+  white-space:nowrap;
+}
+#playlist-section>.panel .playlist-suggest{
+  grid-template-columns:minmax(210px,.65fr) minmax(0,1.35fr);
+  grid-template-rows:auto auto;
+  grid-template-areas:"intro description" "action description";
+  align-items:center;
+  column-gap:28px;
+  row-gap:9px;
+  min-height:0;
+}
+#playlist-section>.panel .playlist-suggest>div{grid-area:intro;min-width:0}
+#playlist-section>.panel .playlist-suggest>p{grid-area:description;margin:0}
+#playlist-section>.panel .playlist-suggest>.btn{
+  grid-area:action;
+  justify-self:start;
+  width:max-content;
+  max-width:100%;
+  white-space:nowrap;
+}
+@media(max-width:700px){
+  #playlist-section>.panel .playlist{
+    grid-template-columns:74px minmax(0,1fr);
+    grid-template-rows:auto auto;
+    grid-template-areas:"cover title" "action action";
+    gap:12px 15px;
+  }
+  #playlist-section>.panel .playlist #playBtn{grid-column:2;grid-row:2}
+  #playlist-section>.panel .playlist-suggest{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto;
+    grid-template-areas:"intro" "description" "action";
+    gap:10px;
+  }
+}
+
 </style>
 </head>
 <body>

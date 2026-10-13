@@ -830,6 +830,9 @@ footer:before{background:linear-gradient(90deg,transparent,#f2dfaa,#fff9e5,#f2df
 .hero-discover{animation:riseIn .5s .16s both!important}
 @media(max-width:700px){.hero-cinema .hero-overline{display:none!important}.hero-cinema .hero-content{width:100%}}
 @media(prefers-reduced-motion:reduce){.hero-cinema .hero-overline,.hero-cinema h1,.hero-discover{animation:none!important}}
+/* Keep the desktop hero copy below the absolute navigation row */
+@media(min-width:701px){.hero-cinema .hero-content{transform:translateY(38px)}}
+@media(max-width:700px){.hero-cinema .hero-content{transform:none}}
 </style>
 </head>
 <body>
